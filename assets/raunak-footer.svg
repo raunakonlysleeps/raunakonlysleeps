@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="90" viewBox="0 0 1200 90" role="img" aria-labelledby="title">
+  <title id="title">Write. Test. Refine. Repeat.</title>
+  <rect width="1200" height="90" rx="14" fill="#0c1422"/>
+  <path d="M40 45H290M910 45H1160" stroke="#38405a"/>
+  <circle cx="290" cy="45" r="4" fill="#a3ffcb"/><circle cx="910" cy="45" r="4" fill="#b5a0ff"/>
+  <text x="600" y="51" text-anchor="middle" font-family="'Courier New',monospace" font-size="18" letter-spacing="2" fill="#a3ffcb">WRITE. TEST. REFINE. REPEAT.</text>
+</svg>
