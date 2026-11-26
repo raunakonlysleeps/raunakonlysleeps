@@ -13,7 +13,7 @@ canvas{position:absolute;inset:0;z-index:1}
 <script type="module">
 import * as THREE from './node_modules/three/build/three.module.js';
 const Q=new URLSearchParams(location.search), S=Q.get('s');
-const SIZES={hero:[1280,560],mods:[640,440],roblox:[640,440],city:[1280,380]};
+const SIZES={hero:[1280,560],mods:[640,440],roblox:[640,440],city:[1280,380],stack:[1280,520]};
 const [W,H]=SIZES[S]; document.body.style.setProperty('--w',W+'px');document.body.style.setProperty('--h',H+'px');
 const R=new THREE.WebGLRenderer({antialias:true,alpha:true,preserveDrawingBuffer:true});
 R.setPixelRatio(2);R.setSize(W,H);R.shadowMap.enabled=true;R.shadowMap.type=THREE.PCFSoftShadowMap;
@@ -166,6 +166,32 @@ if(S==='city'){
   update=t=>{const L=t*4,i=Math.floor(L)%4,f=L-Math.floor(L);const a=pts[i],b=pts[(i+1)%4];
     car.position.set(a[0]+(b[0]-a[0])*f,0,a[1]+(b[1]-a[1])*f);car.rotation.y=-Math.atan2(b[1]-a[1],b[0]-a[0]);
     const ang=Math.sin(t*Math.PI*2)*.25;cam.position.set(30*Math.cos(ang+.8),26,30*Math.sin(ang+.8));cam.lookAt(0,0,0)};
+}
+if(S==='stack'){
+  bg.style.background='radial-gradient(120% 90% at 75% 40%,#1d2238 0%,#0d1117 70%)';
+  ov.innerHTML=`<div class="mono" style="position:absolute;left:52px;top:52px;font-size:12px;color:#ffb38a;letter-spacing:.2em;font-weight:700">04 — ABOUT</div>
+  <div class="big" style="position:absolute;left:50px;top:80px;font-size:66px;color:#f4efe6">HEY, I'M<br>RAUNAK.</div>
+  <div style="position:absolute;left:54px;top:242px;width:400px;font-size:18px;line-height:1.55;color:#b9bfd3">I make things people actually play: <b style="color:#7ee0ff">Roblox games</b>, <b style="color:#9be36a">Minecraft mods</b> and <b style="color:#ff9ecf">FiveM servers</b> — scripts, HUDs, economies, admin panels. Outside the game world I build for the web and automate whatever I'm tired of doing by hand.</div>
+  <div class="mono" style="position:absolute;left:54px;bottom:46px;font-size:12px;color:#7d849c;letter-spacing:.08em">
+  <span style="color:#4fc8f0">■</span> ROBLOX &nbsp; <span style="color:#7fd65a">■</span> MINECRAFT &nbsp; <span style="color:#ff8fc8">■</span> FIVEM &nbsp; <span style="color:#ffb070">■</span> WEB &amp; DATA &nbsp; <span style="color:#b994ff">■</span> SYSTEMS</div>`;
+  cam=new THREE.OrthographicCamera(-W/H*7.2-4.6,W/H*7.2-4.6,7.2,-7.2,.1,200);cam.position.set(18,20,18);cam.lookAt(0,0,0);
+  scene.add(new THREE.HemisphereLight('#dfe6ff','#1a1d2c',1.0));sun('#fff4e6',2.2,[8,18,4],12);
+  const T=[['LUAU','#4fc8f0'],['ROBLOX\nSTUDIO','#4fc8f0'],['JAVA','#7fd65a'],['MINECRAFT\nMODS','#7fd65a'],
+    ['LUA','#ff8fc8'],['FIVEM','#ff8fc8'],['PYTHON','#ffb070'],['DJANGO','#ffb070'],
+    ['JAVA\nSCRIPT','#ffb070'],['HTML\nCSS','#ffb070'],['SQL','#ffb070'],['MYSQL','#ffb070'],
+    ['POSTGRES','#ffb070'],['C / C++','#b994ff'],['AUTO-\nMATION','#b994ff'],['GIT','#b994ff']];
+  const label=(txt,col)=>{const c=document.createElement('canvas');c.width=c.height=256;const g=c.getContext('2d');const draw=()=>{
+    const gr=g.createLinearGradient(0,0,256,256);gr.addColorStop(0,col);gr.addColorStop(1,new THREE.Color(col).multiplyScalar(.7).getStyle());
+    g.fillStyle=gr;g.fillRect(0,0,256,256);g.strokeStyle='rgba(255,255,255,.55)';g.lineWidth=6;g.strokeRect(10,10,236,236);
+    g.fillStyle='#10131d';g.textAlign='center';g.textBaseline='middle';const L=txt.split('\n');const fs=L.some(l=>l.length>7)?34:44;
+    g.font=`900 ${fs}px "Archivo Black"`;L.forEach((l,i)=>g.fillText(l,128,128+(i-(L.length-1)/2)*fs*1.05));};draw();
+    const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=8;t.userData.draw=draw;return t};
+  const keys=T.map(([txt,col],i)=>{const x=i%4,z=i/4|0;const side=mat(new THREE.Color(col).multiplyScalar(.55).getStyle());
+    const top=new THREE.MeshStandardMaterial({map:label(txt,col),roughness:.6});
+    const m=new THREE.Mesh(box,[side,side,top,side,side,side]);m.scale.set(1.8,.9,1.8);m.position.set((x-1.5)*2.15,0,(z-1.5)*2.15);m.userData.tex=top.map;m.rotation.y=Math.PI/2;
+    m.castShadow=m.receiveShadow=true;scene.add(m);return [m,x,z]});
+  const base=cube('#161a28',0,-.9,0);base.scale.set(9.2,.6,9.2);scene.add(base);
+  let drawn=false;update=t=>{if(!drawn){drawn=true;keys.forEach(([m])=>{m.userData.tex.userData.draw();m.userData.tex.needsUpdate=true})}const a=t*Math.PI*2;keys.forEach(([m,x,z])=>{const w=Math.sin(a-(x+z)*.7);m.position.y=Math.max(0,w)*.9;m.rotation.x=0});};
 }
 window.frame=t=>{update(t);R.render(scene,cam)};window.ready=true;
 </script></body></html>

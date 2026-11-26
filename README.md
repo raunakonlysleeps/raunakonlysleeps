@@ -9,14 +9,6 @@
 
 <img src="assets/city.webp" alt="FiveM and Lua: a night-time voxel city with lit windows and a car driving its streets." width="100%">
 
-### Hey, I'm Raunak 👋
+<img src="assets/stack.webp" alt="About Raunak: makes Roblox games, Minecraft mods and FiveM servers, and builds for the web. A 3D grid of skill keys (Luau, Roblox Studio, Java, Minecraft mods, Lua, FiveM, Python, Django, JavaScript, HTML/CSS, SQL, MySQL, Postgres, C/C++, Automation, Git) rippling in a wave." width="100%">
 
-I make things people actually play: **Roblox games** in Luau, **Minecraft mods** in Java, and **FiveM servers** — scripts, HUDs, economies and admin panels. Outside the game world I build for the web and automate whatever I'm tired of doing by hand.
-
-| Game worlds | Web & backend | Also |
-| --- | --- | --- |
-| Luau · Roblox Studio | Python · Django | C · C++ |
-| Java · Minecraft modding | JavaScript · HTML · CSS | Automation |
-| Lua · FiveM | SQL · MySQL · PostgreSQL | |
-
-<sub>Every animation above is a real-time 3D scene I render with Three.js — source in <a href="scripts/render">scripts/render</a>.</sub>
+<p align="center"><sub>Every scene on this page is a real-time 3D render made with Three.js · <a href="scripts/render">source</a></sub></p>
