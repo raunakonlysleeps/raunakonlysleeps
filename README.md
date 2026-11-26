@@ -1,23 +1,22 @@
-<div align="center">
+<img src="assets/hero.gif" alt="A floating voxel island slowly rotating, with a little character walking around it, next to the name RAUNAK." width="100%">
 
-<img src="assets/raunak-banner-3d.svg" alt="Raunak — creative developer and game builder, with a spinning 3D wireframe cube." width="100%">
+<table>
+<tr>
+<td width="50%"><img src="assets/mods.gif" alt="Minecraft mods: a voxel house assembling block by block with a glowing ore block spinning above it." width="100%"></td>
+<td width="50%"><img src="assets/roblox.gif" alt="Roblox games: a blocky character jumping across colourful obby platforms toward a spinning coin." width="100%"></td>
+</tr>
+</table>
 
-**I build for the browser, the server, and the game world — Roblox games, Minecraft mods and FiveM servers.**
+<img src="assets/city.gif" alt="FiveM and Lua: a night-time voxel city with lit windows and a car driving its streets." width="100%">
 
-Python · Roblox (Luau) · Minecraft Modding (Java) · FiveM · Lua · JavaScript · HTML · CSS · Django · SQL · MySQL · PostgreSQL · C · C++ · Automation
+### Hey, I'm Raunak 👋
 
-</div>
+I make things people actually play: **Roblox games** in Luau, **Minecraft mods** in Java, and **FiveM servers** — scripts, HUDs, economies and admin panels. Outside the game world I build for the web and automate whatever I'm tired of doing by hand.
 
-<img src="assets/about-console.svg" alt="About Raunak: focused on game worlds, the web and automation. Stay curious. Keep building. Learn it, build it, make it better." width="100%">
+| Game worlds | Web & backend | Also |
+| --- | --- | --- |
+| Luau · Roblox Studio | Python · Django | C · C++ |
+| Java · Minecraft modding | JavaScript · HTML · CSS | Automation |
+| Lua · FiveM | SQL · MySQL · PostgreSQL | |
 
-## 🎮 Game Worlds I Build
-
-<img src="assets/game-worlds.svg" alt="Animated voxel scenes: Minecraft mods (Java custom blocks and items) and Roblox games (Luau, Roblox Studio)." width="100%">
-
-<img src="assets/skill-dashboard.svg" alt="My toolkit: Python, Lua, JavaScript, C, C++, HTML, CSS, Django, SQL, MySQL, PostgreSQL, FiveM and automation." width="100%">
-
-<img src="assets/skill-circuit.svg" alt="Skills circuit: Raunak connects Python and automation, web interfaces, FiveM and Lua, relational databases, Django, C and C++." width="100%">
-
-<img src="assets/builder-workflow.svg" alt="My approach: imagine the possibility, design the idea, build it with code, and refine the details." width="100%">
-
-<img src="assets/raunak-footer.svg" alt="Good ideas deserve good code. Curiosity in. Working code out. Learn, build, refine, repeat." width="100%">
+<sub>Every animation above is a real-time 3D scene I render with Three.js — source in <a href="scripts/render">scripts/render</a>.</sub>
